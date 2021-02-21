@@ -42,15 +42,11 @@ func getFilesInDirectory(path string, extensions []string) []string {
 
 func main() {
 	args := os.Args[1:]
-	extensions := os.Args[2:]
-	if len(args) <= 0 {
+	if len(args) < 2 {
 		fmt.Printf("Not enough arguments\n")
 		return
 	}
-	if len(extensions) <= 0 {
-		fmt.Printf("Not enough extensions\n")
-		return
-	}
+	extensions := os.Args[2:]
 	var files []string
 	var filesNoDuplicates []string
 	files = getFilesInDirectory(args[0], extensions)
